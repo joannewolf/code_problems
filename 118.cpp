@@ -6,11 +6,7 @@ public:
         	vector<int> temp (1, 1);
         	result.push_back(temp);
         }
-        if (numRows >= 2) {
-        	vector<int> temp (2, 1);
-        	result.push_back(temp);
-        }
-        for (int i = 3; i <= numRows; i++) {
+        for (int i = 2; i <= numRows; i++) {
         	vector<int> temp;
         	temp.push_back(1);
         	for (int j = 0; j < result.back().size() - 1; j++)
