@@ -1,3 +1,4 @@
+#include <stack>
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -10,15 +11,21 @@
 class Solution {
 public:
     TreeNode* invertTree(TreeNode* root) {
-        if (root == NULL)
-            return root;
-        TreeNode *temp = root -> left;
-        root -> left = root -> right;
-        root -> right = temp;
-        if (root -> left != NULL)
-            invertTree(root -> left);
-        if (root -> right != NULL)
-            invertTree(root -> right);
+        stack<TreeNode*> s;
+        if (root != NULL)
+            s.push(root);
+        while (!s.empty()) {
+            TreeNode *temp = s.top() -> left;
+            s.top() -> left = s.top() -> right;
+            s.top() -> right = temp;
+            temp = s.top();
+            s.pop();
+            if (temp -> left != NULL)
+                s.push(temp -> left);
+            if (temp -> right != NULL)
+                s.push(temp -> right);
+        }
+
         return root;
     }
 };
