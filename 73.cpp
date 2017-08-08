@@ -5,24 +5,35 @@ public:
         	return;
 
         int m = matrix.size(), n = matrix[0].size();
-        vector<int> zeroRow(m, 1), zeroColumn(n, 1);
-        
-        // record all row and column that need to be zeroed
+        // use first row/column to record which row/column need to be zeroed
+        bool zeroFirstRow = false, zeroFirstColumn = false;
+
+        // record the row/column that need to be zeroed
         for (int i = 0; i < m; i++) {
-        	for (int j = 0; j < n; j++) {
-        		if (matrix[i][j] == 0) {
-        			zeroRow[i] = 0;
-        			zeroColumn[j] = 0;	
-        		}
-        	}
+            for (int j = 0; j < n; j++) {
+                if (matrix[i][j] == 0) {
+                    zeroFirstRow |= (j == 0);
+                    zeroFirstColumn |= (i == 0);
+                    matrix[0][j] = 0;
+                    matrix[i][0] = 0;
+                }
+            }
         }
 
         // fill in zeros
-        for (int i = 0; i < m; i++) {
-        	for (int j = 0; j < n; j++) {
-        		if (zeroRow[i] == 0 || zeroColumn[j] == 0)
-        			matrix[i][j] = 0;
-        	}
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                if (matrix[0][j] == 0 || matrix[i][0] == 0)
+                    matrix[i][j] = 0;
+            }
+        }
+        if (zeroFirstRow) {
+            for (int i = 0; i < m; i++)
+                matrix[i][0] = 0;
+        }
+        if (zeroFirstColumn) {
+            for (int i = 0; i < n; i++)
+                matrix[0][i] = 0;
         }
     }
 };
