@@ -4,15 +4,17 @@ public:
     bool PredictTheWinner(vector<int>& nums) {
     	int n = nums.size();
     	// store Max(player1 score - player2 score) for subarray [i, j]
-    	vector<vector<int>> dp(n, vector<int>(n, 0));
+    	vector<int> current(n, 0), previous(n, 0);
 
-    	for (int i = 0; i < n; i++)
-    		dp[i][i] = nums[i];
+    	previous[n - 1] = nums[n - 1];
+
     	for (int i = n - 2; i >= 0; i--) {
+    		current[i] = nums[i];
     		for (int j = i + 1; j < n; j++)
-    			dp[i][j] = max(nums[i] - dp[i + 1][j], nums[j] - dp[i][j - 1]);
+    			current[j] = max(nums[i] - previous[j], nums[j] - current[j - 1]);
+    		previous = current;
     	}
 
-    	return (dp[0][n - 1] >= 0);
+    	return (current.back() >= 0);
     }
 };
