@@ -1,15 +1,12 @@
 #include <utility>
 #include <algorithm>
 class Solution {
-private:
-	static bool compareCounts(const pair<int, int> a, const pair<int, int> b) {
-		return (a.second != b.second) ? (a.second > b.second) : (a.first > b.first);
-	}
 public:
     vector<int> topKFrequent(vector<int>& nums, int k) {
         map<int, int> counts;
-        vector<pair<int, int>> countsVec;
+        vector<vector<int>> buckets(nums.size(), vector<int>());
         vector<int> result;
+        int flag = 0;
 
         for (int i : nums) {
         	if (counts.find(i) == counts.end())
@@ -17,11 +14,12 @@ public:
         	else
         		counts[i] ++;
         }
+
         for (map<int, int>::iterator it = counts.begin(); it != counts.end(); it++)
-        	countsVec.push_back(make_pair(it -> first, it -> second));
-        sort(countsVec.begin(), countsVec.end(), compareCounts);
-        for (int i = 0; i < k; i++)
-        	result.push_back(countsVec[i].first);
+        	buckets[(it -> second) - 1].push_back(it -> first);
+        for (int i = buckets.size() - 1; i >= 0 && result.size() < k; i--)
+        	result.insert(result.end(), buckets[i].begin(), buckets[i].end());
+
         return result;
     }
 };
