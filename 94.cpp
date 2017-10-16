@@ -10,14 +10,19 @@
 class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {
-    	if (root == NULL)
-    		return vector<int>();
-        if (root -> left == NULL && root -> right == NULL)
-        	return vector<int>(1, root -> val);
-		vector<int> leftResult = inorderTraversal(root -> left);
-		vector<int> rightResult = inorderTraversal(root -> right);
-		leftResult.push_back(root -> val);
-		leftResult.insert(leftResult.end(), rightResult.begin(), rightResult.end());
-		return leftResult;
+    	vector<int> result;
+    	stack<TreeNode*> toBeChecked;
+    	TreeNode *current = root;
+    	while (current != NULL || !toBeChecked.empty()) {
+    		while (current != NULL) {
+    			toBeChecked.push(current);
+    			current = current -> left;
+    		}
+    		current = toBeChecked.top();
+    		result.push_back(current -> val);
+    		toBeChecked.pop();
+    		current = current -> right;
+    	}
+    	return result;
     }
 };
