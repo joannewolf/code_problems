@@ -9,45 +9,32 @@
 class Solution {
 public:
     void reorderList(ListNode* head) {
-    	if (head == NULL || head -> next == NULL)
-    		return;
-        int n = 0, flag = 0;
-        ListNode *current = head, *previous = NULL, *next, *current2;
-        // count the length of list
-        while (current != NULL) {
-        	n ++;
-        	current = current -> next;
+        // find the head of second half of the list
+        ListNode *walk = head, *run = head;
+        while (run != NULL && run -> next != NULL) {
+            walk = walk -> next;
+            run = run -> next -> next;
         }
-        current = head;
 
-        // find the second half of the list
-        current2 = head;
-        while (flag < n / 2) {
-        	previous = current2;
-        	current2 = current2 -> next;
-        	flag ++;
-        }
-        previous -> next = NULL;
-        printf("%d %d\n", previous -> val, current2 -> val);
         // reverse the second half of the list
-        previous = NULL;
-        next = current2 -> next;
-        while (next != NULL) {
-        	current2 -> next = previous;
-        	previous = current2;
-        	current2 = next;
-        	next = next -> next;
+        ListNode *previous = NULL, *current = walk;
+        while (current != NULL) {
+            ListNode *next = current -> next;
+            current -> next = previous;
+            previous = current;
+            current = next;
         }
-        current2 -> next = previous;
 
-		// merge two halves of list
-        while (current != NULL && current2 != NULL) {
-        	ListNode *temp = current -> next, *temp2 = current2 -> next;
-        	current -> next = current2;
-        	if (temp != NULL)
-        		current2 -> next = temp;
-        	current = temp;
-        	current2 = temp2;
+        // merge two halves of list
+        current = head;
+        ListNode *current2 = previous;
+        while (current != NULL && current2 != NULL && current != current2) {
+            ListNode *next = current -> next, *next2 = current2 -> next;
+            current -> next = current2;
+            if (current2 != next)
+                current2 -> next = next;
+            current = next;
+            current2 = next2;
         }
     }
 };
