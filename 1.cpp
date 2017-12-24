@@ -1,5 +1,17 @@
-#include <algorithm>
-#include <vector>
+// O(N^2)
+class Solution {
+public:
+	vector<int> twoSum(vector<int>& nums, int target) {
+		for (int i = 0; i < nums.size(); i++) {
+			for (int j = i + 1; j < nums.size(); j++) {
+				if (nums[i] + nums[j] == target)
+					return vector<int>{i, j};
+			}
+		}
+	}
+};
+
+// O(NlogN)
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
@@ -23,4 +35,19 @@ public:
         	}
         }
     }
+};
+
+// O(N)
+class Solution {
+public:
+	vector<int> twoSum(vector<int>& nums, int target) {
+		unordered_map<int, int> index;
+
+		for (int i = 0; i < nums.size(); i++) {
+			if (index.find(target - nums[i]) != index.end())
+				return vector<int>{index[target - nums[i]], i};
+			else
+				index[nums[i]] = i;
+		}
+	}
 };
