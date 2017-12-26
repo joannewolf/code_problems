@@ -1,4 +1,3 @@
-#include <stack>
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -8,6 +7,27 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+
+// by recursion
+class Solution {
+private:
+    bool isSymmetricNode(TreeNode *left, TreeNode *right) {
+        if (left == NULL && right == NULL)
+            return true;
+        else if ((left != NULL && right == NULL) || (left == NULL && right != NULL) || (left -> val != right -> val))
+            return false;
+        else
+            return (isSymmetricNode(left -> left, right -> right) & isSymmetricNode(left -> right, right -> left));
+    }
+public:
+    bool isSymmetric(TreeNode* root) {
+        if (root == NULL)
+            return true;
+        return isSymmetricNode(root -> left, root -> right);
+    }
+};
+
+// by iteration
 class Solution {
 public:
     bool isSymmetric(TreeNode* root) {
