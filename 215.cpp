@@ -1,3 +1,4 @@
+// O(N) in avg, quick selection
 class Solution {
 private:
 	void swap(vector<int>& nums, int index1, int index2) {
@@ -27,9 +28,32 @@ private:
 			return quickSelect(nums, start, l - 1, target);
 	}
 public:
-    int findKthLargest(vector<int>& nums, int k) {
-    	if (nums.size() == 0 || k <= 0 || nums.size() < k)
-    		return -1;
-    	return quickSelect(nums, 0, nums.size() - 1, nums.size() - k);
-    }
+	int findKthLargest(vector<int>& nums, int k) {
+		if (nums.size() == 0 || k <= 0 || nums.size() < k)
+			return -1;
+		return quickSelect(nums, 0, nums.size() - 1, nums.size() - k);
+	}
+};
+
+// O(NlogK), use priority queue
+class Solution {
+public:
+	int findKthLargest(vector<int>& nums, int k) {
+		priority_queue<int, vector<int>, greater<int>> pq;
+		for (int i : nums) {
+			pq.push(i);
+			if (pq.size() > k)
+				pq.pop();
+		}
+		return pq.top();
+	}
+};
+
+// O(NlogN)
+class Solution {
+public:
+	int findKthLargest(vector<int>& nums, int k) {
+		sort(nums.begin(), nums.end());
+		return nums[nums.size() - k];
+	}
 };
