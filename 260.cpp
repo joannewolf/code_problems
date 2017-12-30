@@ -1,3 +1,4 @@
+// O(N), O(1) space
 class Solution {
 public:
     vector<int> singleNumber(vector<int>& nums) {
@@ -8,6 +9,7 @@ public:
         	diff ^= i;
         
         // second pass: since the diff must have bits that are different in the two answers, find one of those bits
+        // below will find the last bit one
         diff &= -diff;
         // divide all the nums in 2 groups: which has that bit 1 and which has that bit 0, XOR each group to get the answer
         for (int i : nums) {
