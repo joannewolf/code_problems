@@ -1,3 +1,4 @@
+// O(logN)
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
@@ -26,6 +27,18 @@ public:
         		r = middle - 1;
         }
 
+        return -1;
+    }
+};
+
+// O(N)
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums[i] == target)
+                return i;
+        }
         return -1;
     }
 };
