@@ -1,3 +1,4 @@
+// sumRange O(sqrt(N)), O(sqrt(N)) space for sqrt(N) buckets
 class NumArray {
 private:
 	int k, m;
@@ -11,7 +12,7 @@ public:
     		return;
     	k = sqrt(n);
     	m = n / k + 1;
-    	buckets = vector<vector<int>>(m, vector<int>(k, 0));
+    	buckets = vector<vector<int>>(m, vector<int>(k));
     	for (int i = 0; i < m; i++) {
     		int sum = 0;
     		for (int j = 0; j < k && i * k + j < n; j++) {
@@ -44,10 +45,3 @@ public:
 	    return sum;
     }
 };
-
-/**
- * Your NumArray object will be instantiated and called as such:
- * NumArray obj = new NumArray(nums);
- * obj.update(i,val);
- * int param_2 = obj.sumRange(i,j);
- */
