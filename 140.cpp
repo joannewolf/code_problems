@@ -1,5 +1,7 @@
-// O(NM), dynamic programming, both will TLE
 // can use either string or vector<int> to represent a string
+// moreover, can use another map<char, vector<string>> to speed up the wordDict look up
+
+// O(NM), dynamic programming, both will TLE
 class Solution {
 public:
 	vector<string> wordBreak(string s, vector<string>& wordDict) {
