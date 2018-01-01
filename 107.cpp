@@ -8,29 +8,7 @@
  * };
  */
 
-// by BFS, top down
-class Solution {
-private:
-	vector<vector<int>> nodeList;
-	void printOrder(int level, TreeNode *node) {
-		if (node == NULL)
-			return;
-		if (nodeList.size() < level)
-			nodeList.insert(nodeList.begin(), vector<int>());
-		nodeList[nodeList.size() - level].push_back(node -> val);
-		if (node -> left != NULL)
-			printOrder(level + 1, node -> left);
-		if (node -> right != NULL)
-			printOrder(level + 1, node -> right);
-	}
-public:
-	vector<vector<int>> levelOrderBottom(TreeNode* root) {
-		printOrder(1, root);
-		return nodeList;
-	}
-};
-
-// by BFS, bottom up
+// by DFS, recursion
 class Solution {
 public:
 	vector<vector<int>> levelOrderBottom(TreeNode* root) {
@@ -52,7 +30,7 @@ public:
 	}
 };
 
-// by DFS
+// by DFS, iteration
 class Solution {
 public:
 	vector<vector<int>> levelOrderBottom(TreeNode* root) {
@@ -75,5 +53,27 @@ public:
 		}
 
 		return result;
+	}
+};
+
+// by DFS, recursion
+class Solution {
+private:
+	vector<vector<int>> nodeList;
+	void printOrder(int level, TreeNode *node) {
+		if (node == NULL)
+			return;
+		if (nodeList.size() < level)
+			nodeList.insert(nodeList.begin(), vector<int>());
+		nodeList[nodeList.size() - level].push_back(node -> val);
+		if (node -> left != NULL)
+			printOrder(level + 1, node -> left);
+		if (node -> right != NULL)
+			printOrder(level + 1, node -> right);
+	}
+public:
+	vector<vector<int>> levelOrderBottom(TreeNode* root) {
+		printOrder(1, root);
+		return nodeList;
 	}
 };
