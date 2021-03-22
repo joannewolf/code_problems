@@ -1,3 +1,4 @@
+# Square Dance
 # https://codingcompetitions.withgoogle.com/codejam/round/000000000019fd74/00000000002b1355
 # brute-force O((R*C rounds) * (R*C*(R+C) checks per round))
 T = int(raw_input())

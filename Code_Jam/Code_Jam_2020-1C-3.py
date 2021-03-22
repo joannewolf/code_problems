@@ -1,3 +1,4 @@
+# Oversized Pancake Choppers
 # https://codingcompetitions.withgoogle.com/codejam/round/000000000019fef4/00000000003172d1
 # O(D * N^2)
 # find slice size that can use as much slices fully as possible; for every full slice we use, we can save one cut

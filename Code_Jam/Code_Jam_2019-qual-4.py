@@ -1,5 +1,5 @@
+# Dat Bae
 # https://codingcompetitions.withgoogle.com/codejam/round/0000000000051705/00000000000881de
-
 # Since B <= 15 < 2^4, we can use 4 test string to contruct a 4 bit number in same column
 # and use 2^4 = 16 as a cycle, so it's impossible that whole cycle of bits are broken
 # i.e. 0, 1, 2, ..., 15, 0, 1, 2, ..., 

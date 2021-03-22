@@ -1,3 +1,4 @@
+# Pascal Walk
 # https://codingcompetitions.withgoogle.com/codejam/round/000000000019fd74/00000000002b1353
 # the sum of r-th row = 2^(r - 1), follow N's binary bit to decide which row to go through
 # since N <= 10^9 < 2^30, we will use less than 30 rows

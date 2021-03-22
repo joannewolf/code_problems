@@ -1,3 +1,4 @@
+# Expogo
 # https://codingcompetitions.withgoogle.com/codejam/round/000000000019fef2/00000000002d5b62
 # If |X|+|Y| % 2 == 0, it's impossible to reach, because we have 2^0 = 1 to move
 # If odd on x-axis, we can either move East or West, and the related goal becomes (X - 1, Y) or (X + 1, Y) and next step we need to move 2

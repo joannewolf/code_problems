@@ -1,3 +1,4 @@
+# Square Dance
 # https://codingcompetitions.withgoogle.com/codejam/round/000000000019fd74/00000000002b1355
 # with optimization, O(R*C)
 # only check the neighbor of the eliminated in the next round -> at most O(4*R*C checks) = O(R*C)

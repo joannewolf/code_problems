@@ -1,3 +1,4 @@
+# Join the Ranks
 # https://codingcompetitions.withgoogle.com/codejam/round/000000000019fef2/00000000002d5b64
 # 1, 2, ..., R, 1, 2, ..., R, ..., 1, 2, ..., R (S sets 1~R) -> 1, ..., 1 (S 1's), 2, ..., 2 (S 2's), ..., R, ..., R (S R's)
 
