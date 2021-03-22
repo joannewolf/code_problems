@@ -1,3 +1,4 @@
+# Impromptu Outdoor Gallery
 # https://codingcompetitions.withgoogle.com/codejamio/round/000000000019ff03/00000000001b5e89
 # each simple quadrilateral p1p2p3p4 can be divided into 2 triangles by p1p3 diagonal, p2 and p4 has to be on the different side of p1p3 line
 # O(N^2) choose all combinations of p1 and p3, then O(N) calculate the distance of all other points to p1p3 line and choose minimum on both side -> total O(N^3)
