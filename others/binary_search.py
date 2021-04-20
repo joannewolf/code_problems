@@ -2,12 +2,13 @@
 # 2. How should we compute mid?
 # 3. What would be the condition in while loop?
 
-# return exact index of target, else -1
+# return index of target, not allow duplicate
+# if target not in array, the final L is the index for inserting
 def binary_search(array, target):
     L = 0
     R = len(array) - 1
     while L <= R:
-        # mid = (L + R) / 2 # mostly same as below, only give wrong mid when L < 0, R < 0, (L + R) % 2 = 1
+        # mid = (L + R) / 2 # mostly same as below, only give wrong mid when L < 0, R < 0, (L + R) overflow
         mid = L + (R - L) // 2 # give the lower mid when #elements is even
         # mid2 = L + (R - L + 1) // 2 # give the higher mid when #elements is even
         if array[mid] == target:
@@ -16,64 +17,79 @@ def binary_search(array, target):
             L = mid + 1
         else:
             R = mid - 1
+    print("L", L, "R", R)
+    # return L
     return -1
 
-# return maximum element index which <= target if it exists
+# return first index of target, allow duplicate
+# if target not in array, the final L is the index for inserting
 def binary_search2(array, target):
-    L = 0
-    R = len(array) - 1
-    while L < R:
-        mid = L + (R - L + 1) // 2 # use higher mid when #elements is even, using lower mid will result in infinite loop
-        if array[mid] == target:
-            return mid
-        if array[mid] <= target:
-            L = mid # because mid might be the answer
-        else:
-            R = mid - 1
-    # stop when L == R and return 
-    return L
-
-# return maximum element index which <= target, duplicate elements not allowed
-def binary_search3(array, target):
+    ans = -1
     L = 0
     R = len(array) - 1
     while L <= R:
-        mid = (L + R) // 2
-        if array[mid] <= target:
+        # mid = L + (R - L) // 2
+        mid = L + (R - L + 1) // 2
+        if array[mid] < target:
             L = mid + 1
-        else:
+        elif array[mid] > target:
             R = mid - 1
-    return R
+        else:
+            ans = mid
+            R = mid - 1 # keep search [L, mid - 1] for more left target
 
-# return minimum element index which > target, duplicate elements allowed
+    print("L", L, "R", R)
+    return ans
+
+# return last index of target, allow duplicate
+# if target not in array, the final L is the index for inserting
+def binary_search3(array, target):
+    ans = -1
+    L = 0
+    R = len(array) - 1
+    while L <= R:
+        # mid = L + (R - L) // 2
+        mid = L + (R - L + 1) // 2
+        if array[mid] < target:
+            L = mid + 1
+        elif array[mid] > target:
+            R = mid - 1
+        else:
+            ans = mid
+            L = mid + 1 # keep search [mid + 1, R] for more right target
+
+    print("L", L, "R", R)
+    return ans
+
+# final R is max element index which <= target, allow duplicate
+# final L is min element index which > target
 def binary_search4(array, target):
     L = 0
     R = len(array) - 1
-    ans = -1
     while L <= R:
         mid = (L + R) // 2
         if array[mid] <= target:
             L = mid + 1
         else:
-            ans = mid # mid is last possible answer
             R = mid - 1
-    return ans
-    # return L
-    # return R + 1
+    print("L", L, "R", R)
+    return R
 
-# return minimum element index which > target if exists, duplicate elements allowed
+# final R is max element index which < target, allow duplicate
+# final L is min element index which >= target
 def binary_search5(array, target):
     L = 0
-    R = len(array)
-    while L < R:
+    R = len(array) - 1
+    while L <= R:
         mid = (L + R) // 2
-        if array[mid] <= target:
+        if array[mid] < target:
             L = mid + 1
         else:
-            R = mid
-    return L
+            R = mid - 1
+    print("L", L, "R", R)
+    return R
 
-# return minimum element in sorted, rotated array, duplicate elements allowed
+# return first minimum element in sorted, rotated array, allow duplicate
 def binary_search6(array):
     L = 0
     R = len(array) - 1
@@ -92,7 +108,7 @@ def binary_search6_recursion(array, L, R):
         return 0
     if L == R:
         return L
-    mid = (L + R) / 2
+    mid = (L + R) // 2
     if mid < R and array[mid + 1] < array[mid]:
         return mid + 1
     if mid > L and array[mid] < array[mid - 1]:
@@ -104,12 +120,17 @@ def binary_search6_recursion(array, L, R):
 
 
 array = [ 2, 3, 4, 10, 40 ]
-duplicate_array = [ 2, 2, 3, 4, 10, 10, 10, 20, 40 ]
-target = 3
-# print binary_search5(duplicate_array, target)
+duplicate_array = [ 2, 2, 2, 3, 4, 4, 4, 10, 10, 10, 10, 10, 20, 40 ]
+# print(binary_search5(duplicate_array, 0))
+# print(binary_search5(duplicate_array, 2))
+# print(binary_search5(duplicate_array, 3))
+# print(binary_search5(duplicate_array, 7))
+# print(binary_search5(duplicate_array, 10))
+# print(binary_search5(duplicate_array, 40))
+# print(binary_search5(duplicate_array, 50))
 
 rotated_array = [3, 4, 10, 40, 2]
 rotated_duplicate_array = [2, 3, 3, 4, 10, 10, 40, 2, 2] 
-# print binary_search6(rotated_array)
-# print binary_search6_recursion(rotated_array, 0, len(rotated_array) - 1)
-# print binary_search6_recursion(rotated_duplicate_array, 0, len(rotated_duplicate_array) - 1)
+# print(binary_search6(rotated_duplicate_array))
+# print(binary_search6_recursion(rotated_array, 0, len(rotated_array) - 1))
+# print(binary_search6_recursion(rotated_duplicate_array, 0, len(rotated_duplicate_array) - 1))
