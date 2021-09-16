@@ -8,8 +8,8 @@ T = int(input())
 for t in range(T):
 
     A = [int(n) for n in input().split()]
-    matrix = [[0] * C for i in range(R)]
-
+    matrix_2d = [[0] * C for i in range(R)]
+    matrix_3d = [[[0] * N for j in range(N)] for i in range(N)]
 
     # print("{} {} {}".format(i + 1, j + 1, k + 1))
     # sys.stdout.flush()
