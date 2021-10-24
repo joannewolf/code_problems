@@ -14,7 +14,7 @@ for t in range(T):
     # print("{} {} {}".format(i + 1, j + 1, k + 1))
     # sys.stdout.flush()
 
-    result = 0
+    ans = 0
 
-    print(f"Case #{t + 1}: {result}")
-    # print(f"Case #{t + 1}: {' '.join([str(n) for n in result])}")
+    print(f"Case #{t + 1}: {ans}")
+    # print(f"Case #{t + 1}: {' '.join([str(n) for n in ans])}")
