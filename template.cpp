@@ -19,11 +19,11 @@ int main() {
         int M;
         cin >> M;
         vector< pair<long long, long long> > employees;
-		for (int j = 0; j < L; j++) {
-			cin >> num;
-			cin >> level;
-			employees.push_back(make_pair(level, num));
-		}
+        for (int j = 0; j < L; j++) {
+            cin >> num;
+            cin >> level;
+            employees.push_back(make_pair(level, num));
+        }
         
         printf("Case #%d: %lld\n", t + 1, result);
     }
