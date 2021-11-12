@@ -1,14 +1,9 @@
 // 
 // https://codingcompetitions.withgoogle.com/
 
-#include <iostream>
-#include <vector>
-#include <utility>
-#include <math.h>
-#include <algorithm>
-#include <set>
+#include <bits/stdc++.h>
 
-#define ll long long
+typedef long long ll;
 
 using namespace std;
 
