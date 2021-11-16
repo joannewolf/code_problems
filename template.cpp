@@ -14,6 +14,7 @@ int main() {
         int M;
         cin >> M;
         vector< pair<long long, long long> > employees;
+        vector< vector<int> > dist(26, vector<int>(26, LLONG_MAX));
         for (int j = 0; j < L; j++) {
             cin >> num;
             cin >> level;
