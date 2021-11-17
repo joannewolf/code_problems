@@ -33,3 +33,13 @@ print(ext_gcd(12, 9))
 print(ext_gcd(3, 0))
 print(ext_gcd(9, 12))
 print(ext_gcd(0, 3))
+
+MOD = pow(10, 9) + 7
+def my_pow(a, b):
+    result = 1
+    while b != 0:
+        if b % 2 == 1:
+            result = result * a % MOD
+        a = a * a % MOD
+        b //= 2
+    return result
