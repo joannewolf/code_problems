@@ -118,8 +118,26 @@ def binary_search6_recursion(array, L, R):
     else:
         return binary_search6_recursion(array, mid + 1, R)
 
+# when feeding array element to function will return [False, False, ..., True, True]
+# return first element that function return True
+def func(num, target):
+    return num >= target
+def binary_search7(array, target):
+    L = 0
+    R = len(array) - 1
+    ans = -1
+    while L <= R:
+        mid = (L + R) // 2
+        if func(array[mid], target):
+            ans = mid
+            R = mid - 1 # keep search [L, mid - 1] for more left target
+        else:
+            L = mid + 1
+    print("L", L, "R", R)
+    return ans
 
-array = [ 2, 3, 4, 10, 40 ]
+array = [ 2, 4 ]
+# array = [ 2, 3, 4, 10, 40 ]
 duplicate_array = [ 2, 2, 2, 3, 4, 4, 4, 10, 10, 10, 10, 10, 20, 40 ]
 # print(binary_search5(duplicate_array, 0))
 # print(binary_search5(duplicate_array, 2))
@@ -128,6 +146,7 @@ duplicate_array = [ 2, 2, 2, 3, 4, 4, 4, 10, 10, 10, 10, 10, 20, 40 ]
 # print(binary_search5(duplicate_array, 10))
 # print(binary_search5(duplicate_array, 40))
 # print(binary_search5(duplicate_array, 50))
+print(binary_search7(array, 2))
 
 rotated_array = [3, 4, 10, 40, 2]
 rotated_duplicate_array = [2, 3, 3, 4, 10, 10, 40, 2, 2] 
