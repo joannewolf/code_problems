@@ -14,7 +14,8 @@ int main() {
         int M;
         cin >> M;
         vector< pair<long long, long long> > employees;
-        vector< vector<int> > dist(26, vector<int>(26, LLONG_MAX));
+        vector< vector<int> > matrix_2d(26, vector<int>(26, LLONG_MAX));
+        vector< vector< vector<ll> > > matrix_3d(C+1, vector< vector<ll> >(K+1, vector<ll>(2, LLONG_MAX)));
         for (int j = 0; j < L; j++) {
             cin >> num;
             cin >> level;

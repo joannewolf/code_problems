@@ -25,15 +25,16 @@ def ext_gcd(a, b):
     print(f"({old_s}*{a}) + ({old_t}*{b}) = {old_r}")
     return old_s, old_t, old_r
 
-print(gcd(10, 12))
-print(gcd(12, 9))
-print(gcd2(10, 12))
-print(gcd2(12, 9))
-print(ext_gcd(12, 9))
-print(ext_gcd(3, 0))
-print(ext_gcd(9, 12))
-print(ext_gcd(0, 3))
+# print(gcd(10, 12))
+# print(gcd(12, 9))
+# print(gcd2(10, 12))
+# print(gcd2(12, 9))
+# print(ext_gcd(12, 9))
+# print(ext_gcd(3, 0))
+# print(ext_gcd(9, 12))
+# print(ext_gcd(0, 3))
 
+##################################################
 MOD = pow(10, 9) + 7
 def my_pow(a, b):
     result = 1
