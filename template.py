@@ -7,9 +7,9 @@ import math
 T = int(input())
 for t in range(T):
 
-    A = [int(n) for n in input().split()]
-    matrix_2d = [[0] * C for i in range(R)]
-    matrix_3d = [[[0] * N for j in range(N)] for i in range(N)]
+    A = map(int, input().split())
+    matrix_2d = [[0] * C for _ in range(R)]
+    matrix_3d = [[[0] * N for _ in range(N)] for _ in range(N)]
 
     # print("{} {} {}".format(i + 1, j + 1, k + 1))
     # sys.stdout.flush()
@@ -17,4 +17,4 @@ for t in range(T):
     ans = 0
 
     print(f"Case #{t + 1}: {ans}")
-    # print(f"Case #{t + 1}: {' '.join([str(n) for n in ans])}")
+    # print(f"Case #{t + 1}: {' '.join(map(str, ans))}")
