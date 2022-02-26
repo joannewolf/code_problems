@@ -36,13 +36,13 @@ dist[source] = 0
 prev = [None] * V
 
 for _ in range(V - 1):
-# cuz longest possible path without a cycle can be V-1 edges
+# Cuz longest possible path without a cycle can be V-1 edges
     for (u, v) in edges:
         if dist[u] + weight[u][v] < dist[v]:
             dist[v] = dist[u] + weight[u][v]
             prev[v] = u
 
-# check for negative-weight cycles
+# Check for negative-weight cycles
 for (u, v) in edges:
     if dist[u] + weight[u][v] < dist[v]:
         has_negative_cycle = True
@@ -74,3 +74,43 @@ def path(target):
     while prev[u] != None:
         path.insert(0, u)
         u = prev[u]
+
+##### Prim's algorithm
+# For finding minimum spanning tree for a undirected weighted graph
+# Using greedy to select cheapest edge connected new node to current tree
+# The basic form of Prim's only finds minimum spanning tree for a connected graph, but it can be run separately for each connected part to find minimum spanning forest
+# O(V^2) if using array to store graph
+# O(VlogV + ElogV) = O(ElogV) if using priority queue for cost array, O(ElogV) for updating remaining not-checked nodes, each edge is at most updated once
+cost = [INF] * V
+connection = [-1] * V
+not_checked = set(range(V))
+final_forest = set() # A set of edges
+while not_checked:
+    min_edge = INF + 1
+    next_v = -1
+    # O(V); O(logV) if using priority queue for cost array
+    for v in not_checked:
+        if cost[v] < min_edge:
+            min_edge = cost[v]
+            next_v = v
+    if connection[next_v] != -1:
+        final_forest.add((next_v, connection[next_v]))
+    not_checked.remove(next_v)
+    # For the remaining not-checked nodes, update their minimum cost to current forest
+    for v in not_checked:
+        if weight[next_v][v] < cost[v]:
+            cost[v] = weight[next_v][v]
+            connection[v] = next_v
+
+##### Kruskal's algorithm
+# For finding minimum spanning tree for a undirected weighted graph
+# Using greedy to find the cheapest edge to connect two temp minimum spanning trees
+# Using disjoint-set to store each temp minimum spanning tree and to find the tree for given node
+# Comparing to Prim's, it runs faster in sparse graph
+# O(ElogE) = O(ElogV)
+final_forest = []
+while edge_pq:
+    (u, v) = edge_pq.get_min()
+    if find_set(u) != find_set(v):
+        final_forest = final_forest ∪ (u, v) ∪ (v, u)
+        union(find_set(u), find_set(v))
