@@ -7,7 +7,7 @@ import math
 T = int(input())
 for t in range(T):
 
-    A = map(int, input().split())
+    A = [int(x) for x in input().split()]
     matrix_2d = [[0] * C for _ in range(R)]
     matrix_3d = [[[0] * N for _ in range(N)] for _ in range(N)]
 
