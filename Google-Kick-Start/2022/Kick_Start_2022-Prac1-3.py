@@ -1,5 +1,7 @@
 # H-index
 # https://codingcompetitions.withgoogle.com/kickstart/round/00000000008f4332/0000000000941e56
+# Same with 2019-H-1
+# https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd/00000000001a274e
 
 import heapq
 
