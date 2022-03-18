@@ -1,5 +1,7 @@
 # Kickstart Alarm
 # https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051060/0000000000058a56
+# Same with 2018-C-3
+# https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ee0/0000000000051133
 # subarray len
 # 1       2               3           ...     N
 # A1      A1,A2           A1,A2,A3            A1,A2,...,A{N}
