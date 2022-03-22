@@ -22,6 +22,6 @@ int main() {
             employees.push_back(make_pair(level, num));
         }
         
-        printf("Case #%d: %lld\n", t + 1, result);
+        printf("Case #%d: %lld\n", t + 1, ans);
     }
 }

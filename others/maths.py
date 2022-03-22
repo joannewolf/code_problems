@@ -44,3 +44,12 @@ def my_pow(a, b):
         a = a * a % MOD
         b //= 2
     return result
+
+##################################################
+# To form a valid polygon
+def is_good_polygon(edges: list):
+    if len(edges) < 3:
+        return False
+    else:
+        # In order to form a polygon, sum of all other edges > max edge
+        return sum(edges) - max(edges) > max(edges)
