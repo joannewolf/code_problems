@@ -1,5 +1,7 @@
 # Milk Tea
 # https://codingcompetitions.withgoogle.com/kickstart/round/00000000008f4332/0000000000943934
+# Same with 2018-E-2
+# https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff5/0000000000051185
 # Brute-force, O(PN + P*2^P), TLE on test set 2
 
 INT_MAX = pow(2, 10) + 1

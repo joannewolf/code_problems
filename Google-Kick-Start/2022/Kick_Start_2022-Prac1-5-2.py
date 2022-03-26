@@ -1,5 +1,7 @@
 # Milk Tea
 # https://codingcompetitions.withgoogle.com/kickstart/round/00000000008f4332/0000000000943934
+# Same with 2018-E-2
+# https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff5/0000000000051185
 # Build up the best bits one bit at a time, and only need to maintain first M+1 options
 # Key idea: S_k: the best M+1 options with first k bits, each bits in S_{k+1} must have prefix in S_k
 # O(PN + PMlogM + M)
