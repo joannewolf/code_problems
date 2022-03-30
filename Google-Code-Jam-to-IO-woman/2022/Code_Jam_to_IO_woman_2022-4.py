@@ -7,8 +7,6 @@ for t in range(T):
     board = []
     for _ in range(R):
         board.append(input())
-    matrix_2d = [[0] * C for _ in range(R)]
-    matrix_3d = [[[0] * N for _ in range(N)] for _ in range(N)]
 
     ans = 0
 
