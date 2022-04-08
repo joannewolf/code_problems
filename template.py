@@ -18,3 +18,4 @@ for t in range(T):
 
     print(f"Case #{t + 1}: {ans}")
     # print(f"Case #{t + 1}: {' '.join(map(str, ans))}")
+    # print("bits", format(bits, f'#0{n+2}b'))

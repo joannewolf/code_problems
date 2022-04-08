@@ -53,3 +53,39 @@ def is_good_polygon(edges: list):
     else:
         # In order to form a polygon, sum of all other edges > max edge
         return sum(edges) - max(edges) > max(edges)
+
+##################################################
+# Modular inverse, (a * x) % m = 1
+# (b / a) % m = (b * x) % m
+def modInverse1(a, m):
+    for x in range(1, m):
+        if (((a%m) * (x%m)) % m == 1):
+            return x
+    return -1
+
+def modInverse2(a, m):
+    m0 = m
+    y = 0
+    x = 1
+ 
+    if (m == 1):
+        return 0
+ 
+    while (a > 1):
+        q = a // m # quotient
+        t = m
+
+        # m is remainder now, process, same as Euclid's algo
+        m = a % m
+        a = t
+        t = y
+ 
+        # Update x and y
+        y = x - q * y
+        x = t
+
+    # Make x positive
+    if (x < 0):
+        x = x + m0
+
+    return x

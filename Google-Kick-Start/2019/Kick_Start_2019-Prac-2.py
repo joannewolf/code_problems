@@ -1,5 +1,7 @@
 # Mural
 # https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051060/0000000000058b89
+# Same with 2018-H-2
+# https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ee2/000000000005118a
 
 T = int(input())
 for t in range(T):
