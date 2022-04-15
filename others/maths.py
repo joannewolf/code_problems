@@ -55,14 +55,21 @@ def is_good_polygon(edges: list):
         return sum(edges) - max(edges) > max(edges)
 
 ##################################################
-# Modular inverse, (a * x) % m = 1
-# (b / a) % m = (b * x) % m
+# (a + b) % p = (a % p + b % p) % p
+# (a – b) % p = (a % p – b % p) % p
+# (a * b) % p = (a % p * b % p) % p
+# Modular inverse, if (a * x) % m = 1, then (b / a) % m = (b * x) % m
+
+MOD = pow(10, 9) + 7
+INV3 = (MOD + 1) // 3
+
 def modInverse1(a, m):
     for x in range(1, m):
         if (((a%m) * (x%m)) % m == 1):
             return x
     return -1
 
+# Extended Euclidean algorithm
 def modInverse2(a, m):
     m0 = m
     y = 0
