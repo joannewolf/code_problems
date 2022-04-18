@@ -96,3 +96,9 @@ def modInverse2(a, m):
         x = x + m0
 
     return x
+
+##################################################
+# Chebyshev distance: max(|x2-x1|, |y2-y1|)
+# Manhattan distance: |x2-x1| + |y2-y1|
+#   Chebyshev distance to Manhattan distance: (x, y) -> ((x+y)/2, (x-y)/2)
+# Euclidean distance: sqrt((x2-x1)^2 + (y2-y1)^2)

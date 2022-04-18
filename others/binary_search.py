@@ -153,3 +153,22 @@ rotated_duplicate_array = [2, 3, 3, 4, 10, 10, 40, 2, 2]
 # print(binary_search6(rotated_duplicate_array))
 # print(binary_search6_recursion(rotated_array, 0, len(rotated_array) - 1))
 # print(binary_search6_recursion(rotated_duplicate_array, 0, len(rotated_duplicate_array) - 1))
+
+def ternary_search(array, target):
+    L = 0
+    R = len(array) - 1
+    while L <= R:
+        mid1 = L + (R-L) // 3
+        mid2 = R - (R-L) // 3
+        if array[mid1] == target:
+            return mid1
+        if array[mid2] == target:
+            return mid2
+
+        if target < array[mid1]: # target lies between l and mid1
+            R = mid1 - 1
+        elif target > array[mid2]: # target lies between mid2 and r
+            L = mid2 + 1
+        else: # target lies between mid1 and mid2
+            L = mid1 + 1
+            R = mid2 - 1
