@@ -35,17 +35,6 @@ def ext_gcd(a, b):
 # print(ext_gcd(0, 3))
 
 ##################################################
-MOD = pow(10, 9) + 7
-def my_pow(a, b):
-    result = 1
-    while b != 0:
-        if b % 2 == 1:
-            result = result * a % MOD
-        a = a * a % MOD
-        b //= 2
-    return result
-
-##################################################
 # To form a valid polygon
 def is_good_polygon(edges: list):
     if len(edges) < 3:
@@ -96,6 +85,34 @@ def modInverse2(a, m):
         x = x + m0
 
     return x
+
+def my_pow(a, b):
+    ans = 1
+    while b:
+        if b & 1:
+            ans = ans * a % MOD
+        b >>= 1
+        a = a * a % MOD
+    return ans
+
+N = 10
+fac = [1] * (N + 1)
+rfac = [1] * (N + 1)
+inv = [1] * (N + 1)
+for i in range(1, N + 1):
+    fac[i] = fac[i - 1] * i % MOD
+rfac[N] = my_pow(fac[N], MOD - 2)
+for i in range(N - 1, 0, -1):
+    rfac[i] = rfac[i + 1] * (i + 1) % MOD
+for i in range(1, N):
+    inv[i] = rfac[i] * fac[i-1] % MOD
+
+# print(INV3) # 333333336
+# print(modInverse2(3, MOD)) # 333333336
+# print(pow(3, MOD - 2)) # 333333336
+# print(fac[3], rfac[3], fac[3] * rfac[3] % MOD)
+# print(inv[3]) # 333333336
+# print(inv[4], 4 * inv[4] % MOD)
 
 ##################################################
 # Chebyshev distance: max(|x2-x1|, |y2-y1|)

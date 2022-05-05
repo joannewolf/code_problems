@@ -1,7 +1,6 @@
 # Palindromic Sequence
 # https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e07/0000000000051186
-# Ref:
-# https://blog.csdn.net/lemonmillie/article/details/95203060
+# Ref: https://blog.csdn.net/lemonmillie/article/details/95203060
 
 import math
 
