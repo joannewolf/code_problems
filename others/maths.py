@@ -163,6 +163,14 @@ def matrix_multi(A, B):
                 result[i][j] += A[i][k] * B[k][j]
     return result
 
+def unit_matrix(N):
+    res = []
+    for i in range(N):
+        row = [0] * (N)
+        row[i] = 1
+        res.append(row)
+    return res
+
 def rotate_u(matrix, cosx, sinx, u):
     Ru = [[cosx+u[0]*u[0]*(1-cosx)     , u[1]*u[0]*(1-cosx)+u[2]*sinx, u[2]*u[0]*(1-cosx)-u[1]*sinx],
           [u[0]*u[1]*(1-cosx)-u[2]*sinx, cosx+u[1]*u[1]*(1-cosx)     , u[2]*u[1]*(1-cosx)+u[0]*sinx],
