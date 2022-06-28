@@ -1,5 +1,7 @@
 # Parcels
 # https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01/000000000006987d
+# Same with 2022-Prac2-5
+# https://codingcompetitions.withgoogle.com/kickstart/round/00000000008f4a94/0000000000b55465
 # O(RC*log(R+C))
 # TIPS: Transform optimization problems into decision problems
 # For given distance k, check if we can find a new office location which makes max delivery time at most k
