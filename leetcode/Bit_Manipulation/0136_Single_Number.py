@@ -1,4 +1,4 @@
-# O(N)
+# O(N), O(N) space
 class Solution(object):
     def singleNumber(self, nums):
         """
@@ -13,3 +13,16 @@ class Solution(object):
                 num_set.remove(num)
 
         return list(num_set)[0]
+
+# O(N), O(1) space
+class Solution(object):
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        result = 0
+        for num in nums:
+            result ^= num
+
+        return result

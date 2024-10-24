@@ -41,7 +41,7 @@ class Solution(object):
 
         return True
 
-# recurrsion
+# recursion
 class Solution(object):
     def isSameTree(self, p, q):
         """

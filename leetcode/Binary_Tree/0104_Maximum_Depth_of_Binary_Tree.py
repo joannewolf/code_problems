@@ -30,7 +30,7 @@ class Solution(object):
 
         return layer
 
-# recurrsion
+# recursion
 class Solution(object):
     def maxDepth(self, root):
         """
