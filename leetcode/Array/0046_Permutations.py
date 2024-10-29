@@ -1,4 +1,4 @@
-# recurrsion
+# recursion
 class Solution(object):
     def permute(self, nums):
         """
