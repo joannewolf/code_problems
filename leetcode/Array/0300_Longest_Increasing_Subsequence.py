@@ -7,7 +7,7 @@ class Solution(object):
         """
         N = len(nums)
         result = 1
-        dp = [1] * N # dp[i]: the max len of increasing sequence until nums[i]
+        dp = [1] * N # dp[i]: the max len of increasing sequence until nums[i], including nums[i]
 
         for i in range(1, N):
             for j in range(i):
